@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using vkr.Model;
 
 namespace vkr.Migrations
 {
     [DbContext(typeof(DocumentsContext))]
-    partial class DocumentsContextModelSnapshot : ModelSnapshot
+    [Migration("20200425151707_ChangePracticalType")]
+    partial class ChangePracticalType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,6 +63,9 @@ namespace vkr.Migrations
 
                     b.Property<DateTime>("EndOfPractice")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Fio")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FormOfPractice")
                         .HasColumnType("nvarchar(max)");

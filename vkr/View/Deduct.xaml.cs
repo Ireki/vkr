@@ -31,17 +31,18 @@ namespace vkr.View
             itemDeduct = new List<DeducCount>();
         }
 
-
+        //списать
         private void btnDeduct_Click(object sender, RoutedEventArgs e)
         {
             CheckDeduct();
-            if(itemDeduct.Count == 0) { 
-                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите списать эти записи?", 
-                    "Потверждение", MessageBoxButton.YesNo, 
+            if (itemDeduct.Count != 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите списать эти записи?",
+                    "Потверждение", MessageBoxButton.YesNo,
                     MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    string pathDocument = System.IO.Path.GetFullPath(@"..\..\") + "\\document.docx";
+                    string pathDocument = System.IO.Path.GetFullPath(@"..\..\") + "\\doc2.docx";
                     Word.Application wordApp = new Word.Application();
                     wordApp.Visible = true;
 
@@ -50,14 +51,19 @@ namespace vkr.View
 
                     Word.Table table = document.Tables[1];
                     int k = 3;
-                    itemDeduct.ForEach(it => {
+                    itemDeduct.ForEach(it =>
+                    {
                         table.Rows.Add();
-                        table.Cell(k, 1).Range.Text = it.GroupName;
-                        table.Cell(k, 2).Range.Text = it.Count.ToString();
+                        table.Cell(k, 1).Range.Text = (k - 2).ToString();
+                        table.Cell(k, 2).Range.Text = it.TypeDeduct + it.GroupName;
+                        table.Cell(k, 3).Range.Text = it.Deadline;
+                        table.Cell(k, 4).Range.Text = it.ShelfLife;
+                        table.Cell(k, 5).Range.Text = it.Count.ToString();
+
                         k++;
                     });
 
-                   
+
                     Object missing = Type.Missing;
                     Word.Find findObject = wordApp.Selection.Find;
                     findObject.ClearFormatting();
@@ -71,13 +77,67 @@ namespace vkr.View
                     db.SaveChanges();
                     Load();
                     itemDeduct.Clear();
-
-
                 }
+            }
             else MessageBox.Show("Не выбрано не одной записи");
             
-            }
             
+            itemDeduct.Clear();
+        }
+
+        //уничтожение
+        private void btnDeductDelete_Click(object sender, RoutedEventArgs e)
+        {
+            CheckDeduct();
+            if (itemDeduct.Count != 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите списать эти записи?",
+                    "Потверждение", MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    string pathDocument = System.IO.Path.GetFullPath(@"..\..\") + "\\doc1.docx";
+                    Word.Application wordApp = new Word.Application();
+                    wordApp.Visible = true;
+
+                    Word.Document document = wordApp.Documents.OpenNoRepairDialog(pathDocument);
+                    document.Activate();
+
+                    Word.Table table = document.Tables[1];
+                    
+                    int k = 3;
+                    itemDeduct.ForEach(it =>
+                    {
+                        table.Rows.Add();
+                        table.Cell(k, 1).Range.Text = (k - 2).ToString();
+                        table.Cell(k, 2).Range.Text = it.TypeDeduct + it.GroupName;
+                        table.Cell(k, 3).Range.Text = it.Deadline;
+                        table.Cell(k, 4).Range.Text = it.ShelfLife;
+                        table.Cell(k, 5).Range.Text = it.Count.ToString();
+ 
+                        k++;
+                    });
+
+
+                    Object missing = Type.Missing;
+                    Word.Find findObject = wordApp.Selection.Find;
+                    findObject.ClearFormatting();
+                    findObject.Text = "number";
+                    findObject.Replacement.ClearFormatting();
+                    findObject.Replacement.Text = itemDeduct.Count.ToString();
+                    object replaceAll = Word.WdReplace.wdReplaceAll;
+                    findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                    ref missing, ref missing, ref missing, ref missing, ref missing,
+                    ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    db.SaveChanges();
+                    Load();
+                    itemDeduct.Clear();
+                }
+            }
+            else MessageBox.Show("Не выбрано не одной записи");
+
+
+            itemDeduct.Clear();
         }
 
 
@@ -87,7 +147,11 @@ namespace vkr.View
                 .GroupBy(x => x.Group)
                 .Select(x => new DeducCount {
                     Count = x.Count(),
-                    GroupName = x.Key
+                    GroupName = x.Key,
+                    TypeDeduct = "Выпускные квалификационные работы студентов группы ",
+                    ShelfLife = "5 лет",
+                    Deadline = db.Vkr.FirstOrDefault(y => y.Group == x.Key).Date.AddYears(5).ToShortDateString()
+
                 }).ToList());
             itemDeduct.AddRange(thesesGrid.ItemsSource.OfType<Theses>()
                 .Where(x => x.CheckDeduct)
@@ -95,7 +159,11 @@ namespace vkr.View
                 .Select(x => new DeducCount
                 {
                     Count = x.Count(),
-                    GroupName = x.Key
+                    GroupName = x.Key,
+                    TypeDeduct = "Магистерские диссертации студентов группы ",
+                    ShelfLife = "5 лет",
+                    Deadline = db.Theses.FirstOrDefault(y => y.Group == x.Key).Date.AddYears(5).ToShortDateString()
+
                 }).ToList());
             itemDeduct.AddRange(practicalGrid.ItemsSource.OfType<Practical>()
                 .Where(x => x.CheckDeduct)
@@ -103,16 +171,21 @@ namespace vkr.View
                 .Select(x => new DeducCount
                 {
                     Count = x.Count(),
-                    GroupName = x.Key
+                    GroupName = x.Key,
+                    TypeDeduct = "Производственная практика студентов группы ",
+                    ShelfLife = "5 лет",
+                    Deadline = db.Practical.FirstOrDefault(y => y.Group == x.Key).EndOfPractice.AddYears(5).ToShortDateString()
                 }).ToList());
 
             itemDeduct.AddRange(otherDocGrid.ItemsSource.OfType<OtherDocumentation>()
                 .Where(x => x.CheckDeduct)
-                .GroupBy(x => x.TypeDocumentation)
                 .Select(x => new DeducCount
                 {
-                    Count = x.Count(),
-                    GroupName = x.Key
+                    Count = 1,
+                    TypeDeduct = x.TypeDocumentation,
+                    ShelfLife = x.ShelfLife.ToString() + " лет",
+                    Deadline = x.DateDeposit.AddYears(x.ShelfLife).ToShortDateString()
+
                 }).ToList());
         }
 
@@ -125,7 +198,7 @@ namespace vkr.View
         {
             vkrGrid.ItemsSource = db.Vkr.Where(x => DateTime.Now.Year - x.Date.Year >= 5 && x.DateDeleted == null).ToList();
             thesesGrid.ItemsSource = db.Theses.Where(x => DateTime.Now.Year - x.Date.Year >= 5 && x.DateDeleted == null).ToList();
-            practicalGrid.ItemsSource = db.Practical.Where(x => x.DateDeleted == null).ToList();
+            practicalGrid.ItemsSource = db.Practical.Where(x => DateTime.Now.Year - x.EndOfPractice.Year >= 5 && x.DateDeleted == null).ToList();
             otherDocGrid.ItemsSource = db.OtherDocumentation.Where(x => DateTime.Now.Year - x.DateDeposit.Year >= x.ShelfLife && x.DateDeleted == null).ToList();
         }
     }

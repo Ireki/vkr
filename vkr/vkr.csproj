@@ -173,9 +173,17 @@
     <Compile Include="Migrations\20200314085441_ChangeTypePartical.designer.cs">
       <DependentUpon>20200314085441_ChangeTypePartical.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20200422040722_AddTableOtherDocumentation.cs" />
-    <Compile Include="Migrations\20200422040722_AddTableOtherDocumentation.designer.cs">
-      <DependentUpon>20200422040722_AddTableOtherDocumentation.cs</DependentUpon>
+    <Compile Include="Migrations\20200425151133_AddTableOtherDoc.cs" />
+    <Compile Include="Migrations\20200425151133_AddTableOtherDoc.designer.cs">
+      <DependentUpon>20200425151133_AddTableOtherDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200425151707_ChangePracticalType.cs" />
+    <Compile Include="Migrations\20200425151707_ChangePracticalType.designer.cs">
+      <DependentUpon>20200425151707_ChangePracticalType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200425154048_PracticalDeleteFio.cs" />
+    <Compile Include="Migrations\20200425154048_PracticalDeleteFio.designer.cs">
+      <DependentUpon>20200425154048_PracticalDeleteFio.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DocumentsContextModelSnapshot.cs" />
     <Compile Include="Model\DeducCount.cs" />
@@ -230,7 +238,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="document.docx" />
+    <None Include="doc1.docx" />
+    <None Include="doc2.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

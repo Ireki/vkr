@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vkr.View"
         mc:Ignorable="d"
-        Height="644.599" Width="323.074">
+        Height="710.055" Width="323.074">
     <Grid>
         <StackPanel Width="200"  Margin="30 30 30 30" HorizontalAlignment="Center" >
             <Label >Группа</Label>
             <TextBox Height="26" Name="textBlockGroup"></TextBox>
-            <Label >Ф.И.О.</Label>
-            <TextBox Height="26" Name="textBlockFio"></TextBox>
+            <Label >Имя</Label>
+            <TextBox Height="26" Name="textBlockName"></TextBox>
+            <Label >Фамилия</Label>
+            <TextBox Height="26" Name="textBlockSurname"></TextBox>
+            <Label >Отчество</Label>
+            <TextBox Height="26" Name="textBlockPatronymic"></TextBox>
             <Label >База практики</Label>
             <TextBox Height="26"  Name="textBlockPracticeBase"></TextBox>
             <Label >Населенный пункт</Label>
@@ -26,7 +30,7 @@
             <TextBox Height="26"  Name="textBlockPayment"></TextBox>
             <Label >Руководитель</Label>
             <TextBox Height="26" Name="textBlockDirector"></TextBox>
-            <Button Content="Добавить" Margin="0,20,0.4,0" Click="AddPractical_Click"/>
+            <Button x:Name="btnModify" Content="Добавить" Margin="0,20,0.4,0" Click="AddPractical_Click"/>
         </StackPanel>
     </Grid>
 </Window>

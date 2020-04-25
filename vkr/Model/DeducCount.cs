@@ -10,5 +10,9 @@ namespace vkr.Model
     {
         public int Count { get; set; }
         public string GroupName { get; set; }
+        public string TypeDeduct { get; set; }
+        public string Deadline { get; set; }
+        public string ShelfLife { get; set; }
+
     }
 }

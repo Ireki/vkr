@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace vkr.Migrations
 {
-    public partial class AddTableOtherDocumentation : Migration
+    public partial class AddTableOtherDoc : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace vkr.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TypeDocumentation = table.Column<string>(nullable: true),
                     DateDeposit = table.Column<DateTime>(nullable: false),
-                    ShelfLife = table.Column<DateTime>(nullable: false),
+                    ShelfLife = table.Column<int>(nullable: false),
                     Location = table.Column<string>(nullable: true),
                     DateDeleted = table.Column<DateTime>(nullable: true)
                 },

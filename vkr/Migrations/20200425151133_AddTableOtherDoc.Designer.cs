@@ -10,8 +10,8 @@ using vkr.Model;
 namespace vkr.Migrations
 {
     [DbContext(typeof(DocumentsContext))]
-    [Migration("20200422040722_AddTableOtherDocumentation")]
-    partial class AddTableOtherDocumentation
+    [Migration("20200425151133_AddTableOtherDoc")]
+    partial class AddTableOtherDoc
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,8 +37,8 @@ namespace vkr.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ShelfLife")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("ShelfLife")
+                        .HasColumnType("int");
 
                     b.Property<string>("TypeDocumentation")
                         .HasColumnType("nvarchar(max)");

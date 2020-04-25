@@ -8,7 +8,9 @@ namespace vkr.Model
     {
         public int Id { get; set; }
         public string Group { get; set; }
-        public string Fio { get; set; }
+        public string Surname { get; set; }
+        public string Name { get; set; }
+        public string Patronymic { get; set; }
         public string PracticeBase { get; set; }
         public string HumanSettlement { get; set; }
         public DateTime StartOfPractice { get; set; }

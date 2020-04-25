@@ -30,6 +30,8 @@ namespace vkr.View
             InitializeComponent();
             this.db = db;
             otherDoc = new Model.OtherDocumentation();
+            btnModify.Content = "Добавить";
+
         }
 
         public AddOrChangeOtherDocumentation(Model.OtherDocumentation otherDoc, DocumentsContext db)
@@ -38,6 +40,7 @@ namespace vkr.View
             InitializeComponent();
             this.otherDoc = otherDoc;
             this.db = db;
+            btnModify.Content = "Изменить";
             textBlockLocation.Text = otherDoc.Location;
             textBlockShelfLife.Text = otherDoc.ShelfLife.ToString();
             textBlockTypeDoc.Text = otherDoc.TypeDocumentation;

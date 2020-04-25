@@ -27,16 +27,19 @@ namespace vkr.View
             InitializeComponent();
             db = new DocumentsContext();
             LoadOtherDoc();
+            FindCount();
         }
 
         private void FindCount()
         {
             findCount.Text = "Найдено: " + otherDocGrid.Items.Count.ToString();
+
         }
 
         private void LoadOtherDoc()
         {
             otherDocGrid.ItemsSource = db.OtherDocumentation.Where(x => x.DateDeleted == null).ToList();
+            FindCount();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -48,7 +51,7 @@ namespace vkr.View
                 (x.DateDeposit.Day.ToString() == textBlockDepositDay.Text || textBlockDepositDay.Text == "") &&
                 x.ShelfLife.ToString().StartsWith(textBlockSheflLife.Text) &&
                 x.Location.StartsWith(textBlockLocation.Text) &&
-                x.DateDeleted != null
+                x.DateDeleted == null
             ).ToList();
 
             FindCount();
@@ -73,5 +76,9 @@ namespace vkr.View
             FindCount();
         }
 
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            LoadOtherDoc();
+        }
     }
 }

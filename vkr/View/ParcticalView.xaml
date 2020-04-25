@@ -6,49 +6,62 @@
       xmlns:fa="http://schemas.fontawesome.io/icons/"
       xmlns:local="clr-namespace:vkr.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="ParticalView">
+      d:DesignHeight="460" d:DesignWidth="800"
+      Title="ParticalView"
+      MaxHeight="460">
 
     <Grid Background="White">
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <StackPanel Width="200" Orientation="Vertical">
+                <StackPanel Width="270" Orientation="Vertical">
                     <Label Margin="30 0 0 0">Группа</Label>
-                    <TextBox Margin="30 0 0 0" Name="textBlockGroup"></TextBox>
-                    <Label Margin="30 0 0 0">Ф.И.О.</Label>
-                    <TextBox Margin="30 0 0 0" Name="textBlockFio"></TextBox>
-                    <Label Margin="30 0 0 0">База практики</Label>
-                    <TextBox Margin="30 0 0 0"  Name="textBlockPracticeBase"></TextBox>
+                    <TextBox Height="20" Margin="30 0 0 0" Name="textBlockGroup"></TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Width="70" Margin="30 0 0 0">
+                            <Label >Имя</Label>
+                            <TextBox Height="20" Name="textBlockName"></TextBox>
+                        </StackPanel>
+                        <StackPanel Width="70"  Margin="10 0 0 0">
+                            <Label Margin="5 0 0 0">Фамилия</Label>
+                            <TextBox Height="20"  Name="textBlockSurname"></TextBox>
+                        </StackPanel>
+                        <StackPanel Width="70"  Margin="10 0 0 0">
+                            <Label >Отчество</Label>
+                            <TextBox Height="20"  Name="textBlockPatronymic"></TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                    <Label Margin="30 0 0 0"> База практики</Label>
+                    <TextBox Height="20" Margin="30 0 0 0" Name="textBlockPracticeBase"></TextBox>
                 </StackPanel>
-                <StackPanel Width="200"  Orientation="Vertical">
+                <StackPanel Width="220"  Orientation="Vertical">
                     <Label Margin="30 0 0 0">Населенный пункт</Label>
-                    <TextBox Margin="30 0 0 0" Name="textBlockHumanSettlement"></TextBox>
-                    <Label Margin="30 0 0 0">Начало практики</Label>
+                    <TextBox Height="20" Margin="30 0 0 0" Name="textBlockHumanSettlement"></TextBox>
+                    <Label Margin="30 0 0 -5">Начало практики</Label>
                     <StackPanel Orientation="Horizontal" Margin="30 0 0 0">
                         <Label>ДД</Label>
-                        <TextBox Width="28" Name="textBlockStartDay"></TextBox>
+                        <TextBox Height="20" Width="32" Name="textBlockStartDay"></TextBox>
                         <Label Margin="5 0 0 0" Width="30">ММ</Label>
-                        <TextBox Width="28" Name="textBlockStartMonth"></TextBox>
+                        <TextBox Height="20" Width="32" Name="textBlockStartMonth"></TextBox>
                         <Label Margin="5 0 0 0">ГГ</Label>
-                        <TextBox Width="30" Name="textBlockStartYears"></TextBox>
+                        <TextBox Height="20" Width="32" Name="textBlockStartYears"></TextBox>
                     </StackPanel>
-                    <Label Margin="30 0 0 0">Окончание практики</Label>
+                    <Label Margin="30 0 0 -5">Окончание практики</Label>
                     <StackPanel Orientation="Horizontal" Margin="30 0 0 0">
                         <Label>ДД</Label>
-                        <TextBox Width="28" Name="textBlockEndDay"></TextBox>
+                        <TextBox Height="20" Width="32" Name="textBlockEndDay"></TextBox>
                         <Label Margin="5 0 0 0" Width="30">ММ</Label>
-                        <TextBox Width="28" Name="textBlockEndMonth"></TextBox>
+                        <TextBox Height="20" Width="32" Name="textBlockEndMonth"></TextBox>
                         <Label Margin="5 0 0 0">ГГ</Label>
-                        <TextBox Width="30" Name="textBlockEndYears"></TextBox>
+                        <TextBox Height="20" Width="32" Name="textBlockEndYears"></TextBox>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Width="200" Orientation="Vertical">
+                <StackPanel Width="220" Orientation="Vertical">
                     <Label Margin="30 0 0 0">Форма практики</Label>
-                    <TextBox Margin="30 0 0 0" Name="textBlockFormOfPractice"></TextBox>
+                    <TextBox Height="20" Margin="30 0 0 0" Name="textBlockFormOfPractice"></TextBox>
                     <Label Margin="30 0 0 0">Оплата</Label>
-                    <TextBox Margin="30 0 0 0"  Name="textBlockPayment"></TextBox>
+                    <TextBox Height="20" Margin="30 0 0 0"  Name="textBlockPayment"></TextBox>
                     <Label Margin="30 0 0 0">Руководитель</Label>
-                    <TextBox Margin="30 0 0 0" Name="textBlockDirector"></TextBox>
+                    <TextBox Height="20" Margin="30 0 0 0" Name="textBlockDirector"></TextBox>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -57,9 +70,9 @@
                         <fa:ImageAwesome Margin="3" Icon="Search" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Button>
                     <Button Margin="30 10 0 20"  x:Name="btnAdd" Click="btnAdd_Click" HorizontalAlignment="Center">
-                        <fa:ImageAwesome Margin="3" Icon="UserPlus" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <fa:ImageAwesome Margin="3" Icon="Plus" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Button>
-                    <Button Margin="30 10 0 20"  x:Name="btnUpdate" Click="btnAdd_Click" HorizontalAlignment="Center">
+                    <Button Margin="30 10 0 20"  x:Name="btnUpdate" Click="btnUpdate_Click" HorizontalAlignment="Center">
                         <fa:ImageAwesome Margin="3" Icon="Refresh" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Button>
                 </StackPanel>
@@ -67,7 +80,9 @@
             <DataGrid IsReadOnly="True" Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="practicalGrid"  HorizontalAlignment="Left" Width="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Group}" Header="Группа" Width="auto"/>
-                    <DataGridTextColumn Binding="{Binding Fio}" Header="Ф.И.О" Width="auto"/>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Ф.И.О" Width="auto"/>
+                    <DataGridTextColumn Binding="{Binding Surname}" Header="Ф.И.О" Width="auto"/>
+                    <DataGridTextColumn Binding="{Binding Patronymic}" Header="Ф.И.О" Width="auto"/>
                     <DataGridTextColumn Binding="{Binding PracticeBase}" Header="База практики" Width="120"/>
                     <DataGridTextColumn Binding="{Binding HumanSettlement}" Header="Населенный пункт" Width="auto"/>
                     <DataGridTextColumn Binding="{Binding StartOfPractice, StringFormat={}{0:dd/MM/yyyy}}" Header="Начало практики" Width="auto"/>
@@ -82,7 +97,7 @@
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>
-            <TextBlock x:Name="findCount" Margin="30 10 0 20" Text="21"></TextBlock>
+            <TextBlock x:Name="findCount" Margin="30 10 0 20" Text="0"></TextBlock>
 
         </StackPanel>
     </Grid>

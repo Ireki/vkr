@@ -76,5 +76,10 @@ namespace vkr.View
             LoadVkr();
             FindCount();
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            LoadVkr();
+        }
     }
 }

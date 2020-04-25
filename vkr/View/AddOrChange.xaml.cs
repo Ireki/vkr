@@ -49,11 +49,13 @@ namespace vkr.View
             textBlockLocation.Text = vkr.Location;
         }
 
-        public AddOrChange(Model.Theses vkr, DocumentsContext db)
+        public AddOrChange(Model.Theses theses, DocumentsContext db)
         {
             InitializeComponent();
             this.theses = theses;
             this.db = db;
+            btnModify.Content = "Изменить";
+
             textBlockGroup.Text = theses.Group;
             textBlockProtocolNumber.Text = theses.ProtocolNumber;
             textBlockSurname.Text = theses.Surname;

@@ -28,6 +28,7 @@ namespace vkr.View
             InitializeComponent();
             db = new DocumentsContext();
             LoadTheses();
+            FindCount();
         }
 
         private void FindCount()
@@ -38,6 +39,7 @@ namespace vkr.View
         private void LoadTheses()
         {
             thesesGrid.ItemsSource = db.Theses.Where(x => x.DateDeleted == null).ToList();
+            FindCount();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -92,5 +94,9 @@ namespace vkr.View
             FindCount();
         }
 
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            LoadTheses();
+        }
     }
 }

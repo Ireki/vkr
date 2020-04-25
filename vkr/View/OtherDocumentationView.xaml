@@ -6,30 +6,30 @@
       xmlns:fa="http://schemas.fontawesome.io/icons/"
       xmlns:local="clr-namespace:vkr.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800">
+      d:DesignHeight="460" d:DesignWidth="800"  MaxHeight="460">
 
     <Grid>
         <Grid Background="White">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Width="200" Orientation="Vertical">
+                    <StackPanel Width="220" Orientation="Vertical">
                         <Label Margin="30 0 0 0">Вид документа</Label>
-                        <TextBox Margin="30 0 0 0" Name="textBlockTypeDocumentation"></TextBox>
-                        <Label Margin="30 0 0 0">Дата внесения</Label>
+                        <TextBox Height="20" Margin="30 0 0 0" Name="textBlockTypeDocumentation"></TextBox>
+                        <Label Margin="30 0 0 -5">Дата внесения</Label>
                         <StackPanel Orientation="Horizontal" Margin="30 0 0 0">
                             <Label>ДД</Label>
-                            <TextBox Width="28" Name="textBlockDepositDay"></TextBox>
+                            <TextBox Height="20"  Width="28" Name="textBlockDepositDay"></TextBox>
                             <Label Margin="5 0 0 0" Width="30">ММ</Label>
-                            <TextBox Width="28" Name="textBlockDepositMonth"></TextBox>
+                            <TextBox Height="20"  Width="28" Name="textBlockDepositMonth"></TextBox>
                             <Label Margin="5 0 0 0">ГГ</Label>
-                            <TextBox Width="30" Name="textBlockDepositYears"></TextBox>
+                            <TextBox Height="20"  Width="30" Name="textBlockDepositYears"></TextBox>
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel Width="200"  Orientation="Vertical">
+                    <StackPanel Width="220"  Orientation="Vertical">
                         <Label Margin="30 0 0 0">Место</Label>
-                        <TextBox Margin="30 0 0 0" Name="textBlockLocation"></TextBox>
+                        <TextBox Height="20"  Margin="30 0 0 0" Name="textBlockLocation"></TextBox>
                         <Label Margin="30 0 0 0">Срок хранения</Label>
-                        <TextBox Margin="30 0 0 0" Name="textBlockSheflLife"></TextBox>
+                        <TextBox Height="20"  Margin="30 0 0 0" Name="textBlockSheflLife"></TextBox>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
@@ -37,9 +37,9 @@
                         <fa:ImageAwesome Margin="3" Icon="Search" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Button>
                     <Button Margin="30 10 0 20"  x:Name="btnAdd" Click="btnAdd_Click" HorizontalAlignment="Center">
-                        <fa:ImageAwesome Margin="3" Icon="UserPlus" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <fa:ImageAwesome Margin="3" Icon="Plus" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Button>
-                    <Button Margin="30 10 0 20"  x:Name="btnUpdate" Click="btnAdd_Click" HorizontalAlignment="Center">
+                    <Button Margin="30 10 0 20"  x:Name="btnUpdate" Click="btnUpdate_Click" HorizontalAlignment="Center">
                         <fa:ImageAwesome Margin="3" Icon="Refresh" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Button>
                 </StackPanel>
@@ -48,7 +48,7 @@
                         <DataGridTextColumn Binding="{Binding TypeDocumentation}" Header="Вид документации" Width="auto"/>
                         <DataGridTextColumn Binding="{Binding DateDeposit, StringFormat={}{0:dd/MM/yyyy}}" Header="Дата внесения" Width="auto"/>
                         <DataGridTextColumn Binding="{Binding ShelfLife}" Header="Срок хранения" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding Location}" Header="Место" Width="auto"/>
+                        <DataGridTextColumn Binding="{Binding Location}" Header="Место" Width="120"/>
                     </DataGrid.Columns>
                     <DataGrid.ContextMenu>
                         <ContextMenu>
@@ -56,7 +56,7 @@
                         </ContextMenu>
                     </DataGrid.ContextMenu>
                 </DataGrid>
-                <TextBlock x:Name="findCount" Margin="30 10 0 20" Text="21"></TextBlock>
+                <TextBlock x:Name="findCount" Margin="30 10 0 20" Text="0"></TextBlock>
 
             </StackPanel>
         </Grid>

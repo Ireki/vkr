@@ -28,6 +28,7 @@ namespace vkr.View
             InitializeComponent();
             db = new DocumentsContext();
             LoadPractical();
+            FindCount();
         }
 
         private void FindCount()
@@ -38,13 +39,16 @@ namespace vkr.View
         private void LoadPractical()
         {
             practicalGrid.ItemsSource = db.Practical.Where(x => x.DateDeleted == null).ToList();
+            FindCount();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             practicalGrid.ItemsSource = db.Practical.Where(
                 x => x.Group.StartsWith(textBlockGroup.Text) &&
-                x.Fio.StartsWith(textBlockFio.Text) &&
+                x.Name.StartsWith(textBlockName.Text) &&
+                x.Surname.StartsWith(textBlockSurname.Text) &&
+                x.Patronymic.StartsWith(textBlockPatronymic.Text) &&
                 x.HumanSettlement.StartsWith(textBlockHumanSettlement.Text) &&
                 x.PracticeBase.StartsWith(textBlockPracticeBase.Text) &&
                 (x.StartOfPractice.Year.ToString() == textBlockStartYears.Text || textBlockStartYears.Text == "") &&
@@ -87,5 +91,9 @@ namespace vkr.View
             FindCount();
         }
 
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            LoadPractical();
+        }
     }
 }

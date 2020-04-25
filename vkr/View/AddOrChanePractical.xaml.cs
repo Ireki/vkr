@@ -38,8 +38,11 @@ namespace vkr.View
             InitializeComponent();
             this.practical = practical;
             this.db = db;
+            btnModify.Content = "Изменить";
             textBlockGroup.Text = practical.Group;
-            textBlockFio.Text = practical.Fio;
+            textBlockName.Text = practical.Name;
+            textBlockSurname.Text = practical.Surname;
+            textBlockPatronymic.Text = practical.Patronymic;
             textBlockPracticeBase.Text = practical.PracticeBase;
             textBlockHumanSettlement.Text = practical.HumanSettlement;
             textBlockStartOfPractice.Text = practical.StartOfPractice.ToString();
@@ -56,9 +59,19 @@ namespace vkr.View
                 MessageBox.Show("Поле группы не должно быть пустым");
                 return false;
             }
-            else if (textBlockFio.Text.Trim() == "")
+            else if (textBlockName.Text.Trim() == "")
             {
-                MessageBox.Show("Поле Ф.И.О. не должно быть пустым");
+                MessageBox.Show("Поле имя не должно быть пустым");
+                return false;
+            }
+            else if (textBlockSurname.Text.Trim() == "")
+            {
+                MessageBox.Show("Поле фамилия не должно быть пустым");
+                return false;
+            }
+            else if (textBlockPatronymic.Text.Trim() == "")
+            {
+                MessageBox.Show("Поле отчетство не должно быть пустым");
                 return false;
             }
             else if (textBlockPracticeBase.Text.Trim() == "") {
@@ -96,7 +109,9 @@ namespace vkr.View
         void InitPractical()
         {
             practical.Group = textBlockGroup.Text;
-            practical.Fio = textBlockFio.Text;
+            practical.Name = textBlockName.Text;
+            practical.Surname = textBlockSurname.Text;
+            practical.Patronymic = textBlockPatronymic.Text;
             practical.PracticeBase = textBlockPracticeBase.Text;
             practical.HumanSettlement = textBlockHumanSettlement.Text;
             practical.StartOfPractice = Convert.ToDateTime(textBlockStartOfPractice.Text);
