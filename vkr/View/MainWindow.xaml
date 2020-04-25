@@ -1,0 +1,66 @@
+﻿<Window x:Class="vkr.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:local="clr-namespace:vkr"
+        mc:Ignorable="d"
+        Height="450" Width="800"
+        Title="Учет архивной документации кафедры ВТИК">
+    <Grid>
+        <StackPanel>
+            <TabControl x:Name="tabVtik">
+                <TabItem x:Name="itemVkr">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="3" Width="100" TextAlignment="Center">ВКР</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Frame Source="VkrView.xaml"/>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem x:Name="itemTheses">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="3" Width="100" TextAlignment="Center">Диссертация</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <Frame Source="ThesesView.xaml"/>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem x:Name="itemPractical">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="3" Width="100" TextAlignment="Center">Практика</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <Frame Source="ParcticalView.xaml"/>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem x:Name="itemOtherDocumentation">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="3" Width="150" TextAlignment="Center">Прочая документация</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <Frame Source="OtherDocumentationView.xaml"/>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
+            <StackPanel Margin="0 15 0 0" Orientation="Horizontal">
+                <TextBlock Margin="30 5 0 0">На списание:</TextBlock>
+                <TextBlock FontWeight="Bold" x:Name="countDeduct" Margin="5 5 0 0 " Width="30"></TextBlock>
+                <Button Margin="30 0 0 0"   Click="clickDeduct">
+                    <fa:ImageAwesome Margin="1" Icon="ExternalLink" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

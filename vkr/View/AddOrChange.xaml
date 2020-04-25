@@ -1,0 +1,32 @@
+﻿<Window x:Class="vkr.View.AddOrChange"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vkr.View"
+        mc:Ignorable="d"
+        Height="642.016" Width="323.074">
+    <Grid>
+        <StackPanel Width="200"  Margin="30 30 30 30" HorizontalAlignment="Center" >
+            <Label>Группа</Label>
+            <TextBox Height="26"  Name="textBlockGroup" ></TextBox>
+            <Label>№ протокола</Label>
+            <TextBox Height="26" Name="textBlockProtocolNumber" ></TextBox>
+            <Label>Фамилия</Label>
+            <TextBox Height="26" Name="textBlockSurname" ></TextBox>
+            <Label>Имя</Label>
+            <TextBox Height="26" Name="textBlockName"></TextBox>
+            <Label>Отчество</Label>
+            <TextBox Height="26" Name="textBlockPatronymic"></TextBox>
+            <Label>Тема</Label>
+            <TextBox Height="26" Name="textBlockTheme"></TextBox>
+            <Label>Руковадитель</Label>
+            <TextBox Height="26" Name="textBlockDirector"></TextBox>
+            <Label>Дата</Label>
+            <DatePicker Height="26" Name="textBlockDate"></DatePicker>
+            <Label>Место</Label>
+            <TextBox Height="26" Name="textBlockLocation"></TextBox>
+            <Button Content="Добавить" Margin="0,20,0.4,0" Click="AddVkr_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

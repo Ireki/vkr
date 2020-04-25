@@ -1,0 +1,23 @@
+﻿<Window x:Class="vkr.View.AddOrChangeOtherDocumentation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vkr.View"
+        mc:Ignorable="d"
+        Height="349.666" Width="323.074">
+    <Grid>
+        <StackPanel Width="200"  Margin="30 30 30 30" HorizontalAlignment="Center" >
+            <Label >Вид документа</Label>
+            <TextBox Height="26" Name="textBlockTypeDoc"></TextBox>
+            <Label >Дата внесения</Label>
+            <DatePicker Height="26"  Name="textBlockDateDeposit"></DatePicker>
+            <Label >Срок окончания</Label>
+            <TextBox Height="26" Name="textBlockShelfLife"></TextBox>
+            <Label >Место</Label>
+            <TextBox Height="26" Name="textBlockLocation"></TextBox>
+            <Button Content="{StaticResource }"  Margin="0,20,0,0" Click="AddOtherDoc_Click" Height="34"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

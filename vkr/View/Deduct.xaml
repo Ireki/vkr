@@ -1,0 +1,81 @@
+﻿<Window x:Class="vkr.View.Deduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vkr.View"
+        mc:Ignorable="d"
+        Title="Списывание"
+        Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="20 0 20 0">
+            <ScrollViewer Height="350">
+                <StackPanel >
+                    <Expander Margin="5" Header="ВКР" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                        <DataGrid  AutoGenerateColumns="False" x:Name="vkrGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Group}" Header="Группа" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding ProtocolNumber}" Header="№ протокола" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Surname}" Header="Фамилия" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Name}" Header="Имя" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Patronymic}" Header="Отчество" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Theme}" Header="Тема" Width="120"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Director}" Header="Руководитель" Width="100"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Date, StringFormat={}{0:dd/MM/yyyy}}" Header="Дата" Width="100"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Location}" Header="Место" Width="auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Expander>
+                    <Expander Margin="5" Header="Диссертации" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                        <DataGrid  AutoGenerateColumns="False" x:Name="thesesGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Group}" Header="Группа" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding ProtocolNumber}" Header="№ протокола" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Surname}" Header="Фамилия" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Name}" Header="Имя" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Patronymic}" Header="Отчество" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Theme}" Header="Тема" Width="120"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Director}" Header="Руководитель" Width="100"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Date, StringFormat={}{0:dd/MM/yyyy}}" Header="Дата" Width="100"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Location}" Header="Место" Width="auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Expander>
+                    <Expander Margin="5" Header="Практика" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                        <DataGrid AutoGenerateColumns="False" x:Name="practicalGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Group}" Header="Группа" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Fio}" Header="Ф.И.О" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding PracticeBase}" Header="База практики" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding HumanSettlement}" Header="Населенный пункт" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding StartOfPractice, StringFormat={}{0:dd/MM/yyyy}}" Header="Начало практики" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding EndOfPractice, StringFormat={}{0:dd/MM/yyyy}}" Header="Окончание практики" Width="120"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding FormOfPractice}" Header="Форма практики" Width="100"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Director}" Header="Руководитель" Width="100"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Expander>
+                    <Expander Margin="5" Header="Практика" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                        <DataGrid AutoGenerateColumns="False" x:Name="otherDocGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding TypeDocumentation}" Header="Вид документации" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding DateDeposit, StringFormat={}{0:dd/MM/yyyy}}" Header="Дата внесения" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding ShelfLife}" Header="Срок хранения" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Location}" Header="Место" Width="auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Expander>
+                </StackPanel>
+ 
+            </ScrollViewer>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="0 0 40 0" Width="200" x:Name="btnDeduct" Click="btnDeduct_Click" Content="Списать"/>
+                <Button Margin="0 0 0 0" Width="200" x:Name="btnDelete" Click="btnDeduct_Click" Content="Удалить"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
