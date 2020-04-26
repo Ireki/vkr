@@ -19,6 +19,8 @@ namespace vkr.Model
         public virtual DbSet<Theses> Theses { get; set; }
         public virtual DbSet<Vkr> Vkr { get; set; }
         public virtual DbSet<OtherDocumentation> OtherDocumentation { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

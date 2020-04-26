@@ -185,9 +185,14 @@
     <Compile Include="Migrations\20200425154048_PracticalDeleteFio.designer.cs">
       <DependentUpon>20200425154048_PracticalDeleteFio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200426124154_AddTableUsers.cs" />
+    <Compile Include="Migrations\20200426124154_AddTableUsers.designer.cs">
+      <DependentUpon>20200426124154_AddTableUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\DocumentsContextModelSnapshot.cs" />
     <Compile Include="Model\DeducCount.cs" />
     <Compile Include="Model\OtherDocumentation.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="View\AddOrChangeOtherDocumentation.xaml.cs">
       <DependentUpon>AddOrChangeOtherDocumentation.xaml</DependentUpon>
     </Compile>
@@ -197,8 +202,17 @@
     <Compile Include="View\AddOrChange.xaml.cs">
       <DependentUpon>AddOrChange.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Authorization.xaml.cs">
+      <DependentUpon>Authorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Deduct.xaml.cs">
       <DependentUpon>Deduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ForgetPassword.xaml.cs">
+      <DependentUpon>ForgetPassword.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -262,7 +276,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Authorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Deduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ForgetPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
