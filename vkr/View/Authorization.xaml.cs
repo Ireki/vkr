@@ -82,5 +82,12 @@ namespace vkr.View
                 this.Close();
             }
         }
+
+        private void Button_Click_Reg(object sender, RoutedEventArgs e)
+        {
+            RegistrationView reg = new RegistrationView();
+            reg.Show();
+            this.Close();
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vkr.View"
         mc:Ignorable="d"
-        Title="Authorization" Height="500" Width="340"
+        Title="Авторизация" Height="525.2" Width="340"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel x:Name="panelAutorization">
@@ -22,7 +22,9 @@
             <TextBlock FontSize="15" Foreground="Red" Margin="0 10 0 0" TextAlignment="Center" x:Name="textBlockInfo"></TextBlock>
             <Button BorderBrush="White" Background="White" FontSize="20"  Margin="0 90 0 0" Width="200" Click="Button_Click_1">Забыли пароль?</Button>
             <Button BorderBrush="White" Background="White" FontSize="20" Width="200" Click="Button_Click_2">Сменить пароль</Button>
-          
+            <Button BorderBrush="White" Background="White" FontSize="20" Width="200" Click="Button_Click_Reg">Регистрация</Button>
+
+
         </StackPanel>
     </Grid>
     

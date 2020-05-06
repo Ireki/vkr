@@ -48,7 +48,9 @@
                             <DataGrid.Columns>
                                 <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding Group}" Header="Группа" Width="auto"/>
-                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Fio}" Header="Ф.И.О" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Name}" Header="Имя" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Surname}" Header="Фамилия" Width="auto"/>
+                                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Patronymic}" Header="Отчество" Width="auto"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding PracticeBase}" Header="База практики" Width="auto"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding HumanSettlement}" Header="Населенный пункт" Width="auto"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding StartOfPractice, StringFormat={}{0:dd/MM/yyyy}}" Header="Начало практики" Width="auto"/>
@@ -58,7 +60,7 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </Expander>
-                    <Expander Margin="5" Header="Практика" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                    <Expander Margin="5" Header="Прочая документация" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
                         <DataGrid AutoGenerateColumns="False" x:Name="otherDocGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
                             <DataGrid.Columns>
                                 <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
@@ -73,8 +75,10 @@
  
             </ScrollViewer>
             <StackPanel Height="30"  Margin="0 20 0 0" Orientation="Horizontal">
-                <Button Margin="0 0 40 0" Width="200" x:Name="btnDeduct" Click="btnDeduct_Click" Content="Списать"/>
-                <Button Margin="0 0 0 0" Width="200" x:Name="btnDelete" Click="btnDeductDelete_Click" Content="Удалить"/>
+                <Button Margin="0 0 40 0" Width="200" x:Name="btnDeduct" Click="btnDeduct_Click" Content="Заполнить сдаточную опись"/>
+                <Button Margin="0 0 40 0" Width="200" x:Name="btnDelete" Click="btnDeductDelete_Click" Content="Заполнить акт на уничтожение"/>
+                <Button Margin="0 0 0 0" Width="200" x:Name="btnRemove" Click="btnDeductRemove" Content="Удалить"/>
+
             </StackPanel>
         </StackPanel>
     </Grid>

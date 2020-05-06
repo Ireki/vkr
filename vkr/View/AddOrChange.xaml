@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vkr.View"
         mc:Ignorable="d"
-        Height="642.016" Width="323.074">
+        Height="685.216" Width="323.074">
     <Grid>
         <StackPanel Width="200"  Margin="30 30 30 30" HorizontalAlignment="Center" >
             <Label>Группа</Label>
@@ -19,9 +19,9 @@
             <Label>Отчество</Label>
             <TextBox Height="26" Name="textBlockPatronymic"></TextBox>
             <Label>Тема</Label>
-            <TextBox Height="26" Name="textBlockTheme"></TextBox>
+            <TextBox Height="45" Name="textBlockTheme"></TextBox>
             <Label>Руковадитель</Label>
-            <TextBox Height="26" Name="textBlockDirector"></TextBox>
+            <TextBox Height="45" Name="textBlockDirector"></TextBox>
             <Label>Дата</Label>
             <DatePicker Height="26" Name="textBlockDate"></DatePicker>
             <Label>Место</Label>

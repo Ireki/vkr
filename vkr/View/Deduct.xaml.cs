@@ -201,5 +201,31 @@ namespace vkr.View
             practicalGrid.ItemsSource = db.Practical.Where(x => DateTime.Now.Year - x.EndOfPractice.Year >= 5 && x.DateDeleted == null).ToList();
             otherDocGrid.ItemsSource = db.OtherDocumentation.Where(x => DateTime.Now.Year - x.DateDeposit.Year >= x.ShelfLife && x.DateDeleted == null).ToList();
         }
+
+        private void btnDeductRemove(object sender, RoutedEventArgs e)
+        {
+
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить эти записи?",
+                    "Потверждение", MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    if (practicalGrid.ItemsSource.OfType<Practical>().Any(x => x.CheckDeduct))
+                        db.Practical.RemoveRange(practicalGrid.ItemsSource.OfType<Practical>().Where(x => x.CheckDeduct));
+
+                    if (vkrGrid.ItemsSource.OfType<Vkr>().Any(x => x.CheckDeduct))
+                        db.Vkr.RemoveRange(vkrGrid.ItemsSource.OfType<Vkr>().Where(x => x.CheckDeduct));
+
+                    if (otherDocGrid.ItemsSource.OfType<OtherDocumentation>().Any(x => x.CheckDeduct))
+                        db.OtherDocumentation.RemoveRange(otherDocGrid.ItemsSource.OfType<OtherDocumentation>().Where(x => x.CheckDeduct));
+
+                    if (thesesGrid.ItemsSource.OfType<Theses>().Any(x => x.CheckDeduct))
+                        db.Theses.RemoveRange(thesesGrid.ItemsSource.OfType<Theses>().Where(x => x.CheckDeduct));
+                    
+                    db.SaveChanges();
+                    Load();
+                }
+            
+        }
     }
 }

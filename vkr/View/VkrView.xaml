@@ -58,7 +58,7 @@
                     </Button>
                 </StackPanel>
             </StackPanel>
-            <DataGrid IsReadOnly="True" Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="vkrGrid"  HorizontalAlignment="Left" Width="auto">
+            <DataGrid Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="vkrGrid"  HorizontalAlignment="Left" Width="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Group}" Header="Группа" Width="auto"/>
                     <DataGridTextColumn Binding="{Binding ProtocolNumber}" Header="№ протокола" Width="auto"/>

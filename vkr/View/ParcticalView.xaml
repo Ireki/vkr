@@ -77,12 +77,12 @@
                     </Button>
                 </StackPanel>
             </StackPanel>
-            <DataGrid IsReadOnly="True" Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="practicalGrid"  HorizontalAlignment="Left" Width="auto">
+            <DataGrid Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="practicalGrid"  HorizontalAlignment="Left" Width="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Group}" Header="Группа" Width="auto"/>
-                    <DataGridTextColumn Binding="{Binding Name}" Header="Ф.И.О" Width="auto"/>
-                    <DataGridTextColumn Binding="{Binding Surname}" Header="Ф.И.О" Width="auto"/>
-                    <DataGridTextColumn Binding="{Binding Patronymic}" Header="Ф.И.О" Width="auto"/>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="auto"/>
+                    <DataGridTextColumn Binding="{Binding Surname}" Header="Фамилия" Width="auto"/>
+                    <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="auto"/>
                     <DataGridTextColumn Binding="{Binding PracticeBase}" Header="База практики" Width="120"/>
                     <DataGridTextColumn Binding="{Binding HumanSettlement}" Header="Населенный пункт" Width="auto"/>
                     <DataGridTextColumn Binding="{Binding StartOfPractice, StringFormat={}{0:dd/MM/yyyy}}" Header="Начало практики" Width="auto"/>
