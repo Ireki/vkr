@@ -24,11 +24,24 @@ namespace vkr.View
     {
         DocumentsContext db;
         List<DeducCount> itemDeduct;
-        public Deduct()
+        int role;
+        public Deduct(int role)
         {
             InitializeComponent();
             db = new DocumentsContext();
             itemDeduct = new List<DeducCount>();
+            this.role = role;
+            RoleChangeDesiegn();
+        }
+
+
+        public void RoleChangeDesiegn(){
+            if(role == 1)
+            {
+                btnDeduct.Visibility = Visibility.Collapsed;
+                btnDelete.Visibility = Visibility.Collapsed;
+                btnRemove.Visibility = Visibility.Collapsed;
+            }
         }
 
         //списать
@@ -63,17 +76,11 @@ namespace vkr.View
                         k++;
                     });
 
+                    ReplaceWord(wordApp, "numbers", itemDeduct.Sum(x => x.Count).ToString());
+                    ReplaceWord(wordApp, "start_number", "1");
+                    ReplaceWord(wordApp, "end_number", itemDeduct.Count.ToString());
 
-                    Object missing = Type.Missing;
-                    Word.Find findObject = wordApp.Selection.Find;
-                    findObject.ClearFormatting();
-                    findObject.Text = "number";
-                    findObject.Replacement.ClearFormatting();
-                    findObject.Replacement.Text = itemDeduct.Count.ToString();
-                    object replaceAll = Word.WdReplace.wdReplaceAll;
-                    findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-                    ref missing, ref missing, ref missing, ref missing, ref missing,
-                    ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
                     db.SaveChanges();
                     Load();
                     itemDeduct.Clear();
@@ -83,6 +90,22 @@ namespace vkr.View
             
             
             itemDeduct.Clear();
+        }
+
+
+        public void ReplaceWord(Word.Application wordApp, string ReplaceText, string ReplacementText)
+        {
+
+            Object missing = Type.Missing;
+            Word.Find findObject = wordApp.Selection.Find;
+            findObject.ClearFormatting();
+            findObject.Text = ReplaceText;
+            findObject.Replacement.ClearFormatting();
+            findObject.Replacement.Text = ReplacementText;
+            object replaceAll = Word.WdReplace.wdReplaceAll;
+            findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+            ref missing, ref missing, ref missing, ref missing, ref missing,
+            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
         }
 
         //уничтожение
@@ -119,16 +142,9 @@ namespace vkr.View
                     });
 
 
-                    Object missing = Type.Missing;
-                    Word.Find findObject = wordApp.Selection.Find;
-                    findObject.ClearFormatting();
-                    findObject.Text = "number";
-                    findObject.Replacement.ClearFormatting();
-                    findObject.Replacement.Text = itemDeduct.Count.ToString();
-                    object replaceAll = Word.WdReplace.wdReplaceAll;
-                    findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-                    ref missing, ref missing, ref missing, ref missing, ref missing,
-                    ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    ReplaceWord(wordApp, "numbers", itemDeduct.Sum(x => x.Count).ToString());
+                    ReplaceWord(wordApp, "start_number", "1");
+                    ReplaceWord(wordApp, "end_number", itemDeduct.Count.ToString());
                     db.SaveChanges();
                     Load();
                     itemDeduct.Clear();

@@ -80,11 +80,6 @@ namespace vkr.View
             FindCount();
         }
 
-        private void clickDeduct(object sender, RoutedEventArgs e)
-        {
-            Deduct deduct = new Deduct();
-            deduct.ShowDialog();
-        }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {

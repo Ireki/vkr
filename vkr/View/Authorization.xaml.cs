@@ -29,7 +29,7 @@ namespace vkr.View
         {
             if (Validate()){
                 if (IsPassword()){
-                    MainWindow main = new MainWindow();
+                    MainWindow main = new MainWindow(GetRole());
                     main.Show();
                     this.Close();
                 }
@@ -44,6 +44,13 @@ namespace vkr.View
                 .Any(x => x.Password.Trim() == textBoxPassword.Password.Trim() &&
                 (x.Login.Trim() == textBoxLogin.Text.Trim() || x.Email.Trim() == textBoxLogin.Text.Trim()));
 
+        }
+
+        private int GetRole()
+        {
+            return (new DocumentsContext())
+                .Users
+                .FirstOrDefault(x => x.Login.Trim() == textBoxLogin.Text.Trim() || x.Email.Trim() == textBoxLogin.Text.Trim()).Role;
         }
 
         private bool Validate(){

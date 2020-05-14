@@ -22,15 +22,20 @@ namespace vkr
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        int role;
+        public MainWindow(int role)
         {
             InitializeComponent();
             DeductCount();
+            this.role = role;
         }
+
+
+
 
         private void clickDeduct(object sender, RoutedEventArgs e)
         {
-            Deduct deduct = new Deduct();
+            Deduct deduct = new Deduct(role);
             deduct.ShowDialog();
             DeductCount();
         }
