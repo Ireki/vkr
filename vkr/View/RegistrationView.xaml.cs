@@ -52,7 +52,8 @@ namespace vkr.View
                 Login = textBoxLogin.Text,
                 Email = textBoxEmail.Text,
                 Password = textBoxPassword.Password,
-                Name = textBoxName.Text
+                Name = textBoxName.Text, 
+                Role = 1
             });
             db.SaveChanges();
 
