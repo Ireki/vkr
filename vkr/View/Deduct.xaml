@@ -18,7 +18,7 @@
                                 <CheckBox Margin="15 0 0 0" Name="checkBoxVkr" Click="IsCheckedVkr">Выделить все</CheckBox>
                             </StackPanel>
                         </Expander.Header>
-                        <DataGrid  AutoGenerateColumns="False" x:Name="vkrGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
+                        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False" x:Name="vkrGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
                             <DataGrid.Columns>
                                 <DataGridCheckBoxColumn x:Name="columnCheckVkr" IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding Group}" Header="Группа" Width="auto"/>
@@ -40,7 +40,7 @@
                                 <CheckBox Margin="15 0 0 0" Name="checkBoxTheses" Click="IsCheckedTheses">Выделить все</CheckBox>
                             </StackPanel>
                         </Expander.Header>
-                        <DataGrid  AutoGenerateColumns="False" x:Name="thesesGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
+                        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False" x:Name="thesesGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
                             <DataGrid.Columns>
                                 <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding Group}" Header="Группа" Width="auto"/>
@@ -62,7 +62,7 @@
                                 <CheckBox Margin="15 0 0 0" Name="checkBoxPractical" Click="IsCheckedPractical">Выделить все</CheckBox>
                             </StackPanel>
                         </Expander.Header>
-                        <DataGrid AutoGenerateColumns="False" x:Name="practicalGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
+                        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False" x:Name="practicalGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
                             <DataGrid.Columns>
                                 <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding Group}" Header="Группа" Width="auto"/>
@@ -85,7 +85,7 @@
                                 <CheckBox Margin="15 0 0 0" Name="checkBoxOtherDoc" Click="IsCheckedOtherDoc">Выделить все</CheckBox>
                             </StackPanel>
                         </Expander.Header>
-                        <DataGrid AutoGenerateColumns="False" x:Name="otherDocGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
+                        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False" x:Name="otherDocGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
                             <DataGrid.Columns>
                                 <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding TypeDocumentation}" Header="Вид документации" Width="auto"/>

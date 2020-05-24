@@ -77,7 +77,7 @@
                     </Button>
                 </StackPanel>
             </StackPanel>
-            <DataGrid Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="practicalGrid"  HorizontalAlignment="Left" Width="auto">
+            <DataGrid CanUserAddRows="False" Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="practicalGrid"  HorizontalAlignment="Left" Width="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Group}" Header="Группа" Width="auto"/>
                     <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="auto"/>

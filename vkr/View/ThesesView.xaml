@@ -56,7 +56,7 @@
                     <fa:ImageAwesome Margin="3" Icon="Refresh" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 </Button>
             </StackPanel>
-            <DataGrid  Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="thesesGrid"  HorizontalAlignment="Left" Width="auto">
+            <DataGrid CanUserAddRows="False" Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="thesesGrid"  HorizontalAlignment="Left" Width="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Group}" Header="Группа" Width="auto"/>
                     <DataGridTextColumn Binding="{Binding ProtocolNumber}" Header="№ протокола" Width="auto"/>

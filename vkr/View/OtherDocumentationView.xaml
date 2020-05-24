@@ -43,8 +43,8 @@
                         <fa:ImageAwesome Margin="3" Icon="Refresh" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Button>
                 </StackPanel>
-                <DataGrid  Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="otherDocGrid"  HorizontalAlignment="Left" Width="auto">
-                    <DataGrid.Columns>
+                <DataGrid CanUserAddRows="False" Margin="30 0 30 0"  Height="225" HeadersVisibility="Column" AutoGenerateColumns="False" x:Name="otherDocGrid"  HorizontalAlignment="Left" Width="auto">
+                    <DataGrid.Columns >
                         <DataGridTextColumn Binding="{Binding TypeDocumentation}" Header="Вид документации" Width="auto"/>
                         <DataGridTextColumn Binding="{Binding DateDeposit, StringFormat={}{0:dd/MM/yyyy}}" Header="Дата внесения" Width="auto"/>
                         <DataGridTextColumn Binding="{Binding ShelfLife}" Header="Срок хранения" Width="120"/>
