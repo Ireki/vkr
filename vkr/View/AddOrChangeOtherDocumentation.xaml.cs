@@ -55,11 +55,7 @@ namespace vkr.View
                 MessageBox.Show("Поле группы не должно быть пустым");
                 return false;
             }
-            else if (textBlockLocation.Text.Trim() == "")
-            {
-                MessageBox.Show("Поле Ф.И.О. не должно быть пустым");
-                return false;
-            }
+
             else if (textBlockShelfLife.Text.Trim() == "") {
                 MessageBox.Show("Поле база практики не должно быть пустым");
                 return false;

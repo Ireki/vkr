@@ -11,10 +11,16 @@
         <StackPanel Margin="20 0 20 0">
             <ScrollViewer Height="350">
                 <StackPanel >
-                    <Expander Margin="5" Header="ВКР" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                    <Expander Margin="5" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>ВКР</TextBlock>
+                                <CheckBox Margin="15 0 0 0" Name="checkBoxVkr" Click="IsCheckedVkr">Выделить все</CheckBox>
+                            </StackPanel>
+                        </Expander.Header>
                         <DataGrid  AutoGenerateColumns="False" x:Name="vkrGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
                             <DataGrid.Columns>
-                                <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
+                                <DataGridCheckBoxColumn x:Name="columnCheckVkr" IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding Group}" Header="Группа" Width="auto"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding ProtocolNumber}" Header="№ протокола" Width="auto"/>
                                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding Surname}" Header="Фамилия" Width="auto"/>
@@ -27,7 +33,13 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </Expander>
-                    <Expander Margin="5" Header="Диссертации" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                    <Expander Margin="5" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Диссертации</TextBlock>
+                                <CheckBox Margin="15 0 0 0" Name="checkBoxTheses" Click="IsCheckedTheses">Выделить все</CheckBox>
+                            </StackPanel>
+                        </Expander.Header>
                         <DataGrid  AutoGenerateColumns="False" x:Name="thesesGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
                             <DataGrid.Columns>
                                 <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
@@ -43,7 +55,13 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </Expander>
-                    <Expander Margin="5" Header="Практика" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                    <Expander Margin="5" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Практика</TextBlock>
+                                <CheckBox Margin="15 0 0 0" Name="checkBoxPractical" Click="IsCheckedPractical">Выделить все</CheckBox>
+                            </StackPanel>
+                        </Expander.Header>
                         <DataGrid AutoGenerateColumns="False" x:Name="practicalGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
                             <DataGrid.Columns>
                                 <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>
@@ -60,7 +78,13 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </Expander>
-                    <Expander Margin="5" Header="Прочая документация" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                    <Expander Margin="5" Padding="5" BorderBrush="DarkGray" BorderThickness="2">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Прочая документация</TextBlock>
+                                <CheckBox Margin="15 0 0 0" Name="checkBoxOtherDoc" Click="IsCheckedOtherDoc">Выделить все</CheckBox>
+                            </StackPanel>
+                        </Expander.Header>
                         <DataGrid AutoGenerateColumns="False" x:Name="otherDocGrid" HorizontalAlignment="Left" Width="auto" Height="320" Loaded="vkrLoad">
                             <DataGrid.Columns>
                                 <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding CheckDeduct}" Header="Списать" Width="70"/>

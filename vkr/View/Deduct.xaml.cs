@@ -243,5 +243,66 @@ namespace vkr.View
                 }
             
         }
+
+        private void IsCheckedVkr(object sender, RoutedEventArgs e)
+        {
+            if ((bool)checkBoxVkr.IsChecked)
+            {
+                vkrGrid.ItemsSource.OfType<Vkr>().ToList().ForEach(x => x.CheckDeduct = true);
+                vkrGrid.Items.Refresh();
+
+            }
+            else
+            {
+                vkrGrid.ItemsSource.OfType<Vkr>().ToList().ForEach(x => x.CheckDeduct = false);
+                vkrGrid.Items.Refresh();
+            }
+
+        }
+
+        private void IsCheckedTheses(object sender, RoutedEventArgs e)
+        {
+            if ((bool)checkBoxTheses.IsChecked)
+            {
+                thesesGrid.ItemsSource.OfType<Theses>().ToList().ForEach(x => x.CheckDeduct = true);
+                thesesGrid.Items.Refresh();
+
+            }
+            else
+            {
+                thesesGrid.ItemsSource.OfType<Theses>().ToList().ForEach(x => x.CheckDeduct = false);
+                thesesGrid.Items.Refresh();
+            }
+        }
+
+        private void IsCheckedPractical(object sender, RoutedEventArgs e)
+        {
+            if ((bool)checkBoxPractical.IsChecked)
+            {
+                practicalGrid.ItemsSource.OfType<Practical>().ToList().ForEach(x => x.CheckDeduct = true);
+                practicalGrid.Items.Refresh();
+
+            }
+            else
+            {
+                practicalGrid.ItemsSource.OfType<Practical>().ToList().ForEach(x => x.CheckDeduct = false);
+                practicalGrid.Items.Refresh();
+            }
+        }
+
+        private void IsCheckedOtherDoc(object sender, RoutedEventArgs e)
+        {
+            if ((bool)checkBoxOtherDoc.IsChecked)
+            {
+                otherDocGrid.ItemsSource.OfType<OtherDocumentation>().ToList().ForEach(x => x.CheckDeduct = true);
+                otherDocGrid.Items.Refresh();
+
+            }
+            else
+            {
+                otherDocGrid.ItemsSource.OfType<OtherDocumentation>().ToList().ForEach(x => x.CheckDeduct = false);
+                otherDocGrid.Items.Refresh();
+            }
+        }
     }
 }
