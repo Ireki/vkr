@@ -19,5 +19,6 @@ namespace vkr.Model
         public DateTime? DateDeleted { get; set; }
         [NotMapped]
         public bool CheckDeduct { get; set; }
+
     }
 }

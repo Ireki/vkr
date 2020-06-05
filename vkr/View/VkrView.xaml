@@ -6,20 +6,29 @@
       xmlns:fa="http://schemas.fontawesome.io/icons/"
       xmlns:local="clr-namespace:vkr.View"
       mc:Ignorable="d" 
-      d:DesignHeight="460" d:DesignWidth="800"
+      d:DesignHeight="520" d:DesignWidth="800"
       Title="VkrView"
-      MaxHeight="460">
+      MaxHeight="520">
 
     <Grid Background="White">
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <StackPanel Width="220" Orientation="Vertical">
                     <Label Margin="30 0 0 0">Группа</Label>
-                    <TextBox Height="20" Margin="30 0 0 0" Name="textBlockGroup"></TextBox>
+                    <ComboBox Background="Blue" Height="20" Margin="30 0 0 0" Name="textBlockGroup"></ComboBox>
                     <Label Margin="30 0 0 0">№ протокола</Label>
                     <TextBox Height="20" Margin="30 0 0 0" Name="textBlockProtocolNumber"></TextBox>
                     <Label Margin="30 0 0 0">Фамилия</Label>
                     <TextBox Height="20" Margin="30 0 0 0"  Name="textBlockSurname"></TextBox>
+                    <Label Margin="30 0 0 0">Осталось до списания</Label>
+                    <StackPanel Orientation="Horizontal" Margin="30 0 0 0">
+                        <Label>ДД</Label>
+                        <TextBox Height="20" Width="32" Name="textBlockRemainedDay"></TextBox>
+                        <Label Margin="5 0 0 0" Width="30">ММ</Label>
+                        <TextBox Height="20" Width="32" Name="textBlockRemainedMonth"></TextBox>
+                        <Label Margin="5 0 0 0">ГГ</Label>
+                        <TextBox Height="20" Width="32" Name="textBlockRemainedYears"></TextBox>
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel Width="220"  Orientation="Vertical">
                     <Label Margin="30 0 0 0">Имя</Label>

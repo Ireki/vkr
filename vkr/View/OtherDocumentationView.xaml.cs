@@ -44,6 +44,11 @@ namespace vkr.View
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            int days = 0;
+            if (textBlockRemainedMonth.Text != "") days += int.Parse(textBlockRemainedMonth.Text) * 30;
+            if (textBlockRemainedDay.Text != "") days += int.Parse(textBlockRemainedDay.Text);
+            if (textBlockRemainedYears.Text != "") days += int.Parse(textBlockRemainedYears.Text) * 365;
+
             otherDocGrid.ItemsSource = db.OtherDocumentation.Where(
                 x => x.TypeDocumentation.StartsWith(textBlockTypeDocumentation.Text) &&
                 (x.DateDeposit.Year.ToString() == textBlockDepositYears.Text || textBlockDepositYears.Text == "") &&
@@ -51,7 +56,10 @@ namespace vkr.View
                 (x.DateDeposit.Day.ToString() == textBlockDepositDay.Text || textBlockDepositDay.Text == "") &&
                 x.ShelfLife.ToString().StartsWith(textBlockSheflLife.Text) &&
                 x.Location.StartsWith(textBlockLocation.Text) &&
-                x.DateDeleted == null
+                x.DateDeleted == null &&
+                (((DateTime.Now.Year - x.DateDeposit.Year) * 365 + (DateTime.Now.Month - x.DateDeposit.Month) * 30 + (DateTime.Now.Day - x.DateDeposit.Day) > x.ShelfLife * 365 - days &&
+                (DateTime.Now.Year - x.DateDeposit.Year) * 365 + (DateTime.Now.Month - x.DateDeposit.Month) * 30 + (DateTime.Now.Day - x.DateDeposit.Day) < x.ShelfLife * 365)
+                || (textBlockRemainedMonth.Text == "" && textBlockRemainedDay.Text == "" && textBlockRemainedYears.Text == ""))
             ).ToList();
 
             FindCount();

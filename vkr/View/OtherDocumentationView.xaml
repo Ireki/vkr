@@ -31,7 +31,19 @@
                         <Label Margin="30 0 0 0">Срок хранения</Label>
                         <TextBox Height="20"  Margin="30 0 0 0" Name="textBlockSheflLife"></TextBox>
                     </StackPanel>
+                    <StackPanel Width="220"  Orientation="Vertical">
+                        <Label Margin="30 0 0 0">Осталось до списания</Label>
+                        <StackPanel Orientation="Horizontal" Margin="30 0 0 0">
+                            <Label>ДД</Label>
+                            <TextBox Height="20" Width="32" Name="textBlockRemainedDay"></TextBox>
+                            <Label Margin="5 0 0 0" Width="30">ММ</Label>
+                            <TextBox Height="20" Width="32" Name="textBlockRemainedMonth"></TextBox>
+                            <Label Margin="5 0 0 0">ГГ</Label>
+                            <TextBox Height="20" Width="32" Name="textBlockRemainedYears"></TextBox>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
+
                 <StackPanel Orientation="Horizontal">
                     <Button Margin="30 10 0 20"  Name="btnSearch" Click="btnSearch_Click" RenderTransformOrigin="0.624,0.044">
                         <fa:ImageAwesome Margin="3" Icon="Search" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />

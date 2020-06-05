@@ -39,11 +39,17 @@ namespace vkr.View
         private void LoadTheses()
         {
             thesesGrid.ItemsSource = db.Theses.Where(x => x.DateDeleted == null).ToList();
+            textBlockGroup.ItemsSource = db.Theses.Where(x => x.DateDeleted == null).Select(x => x.Group).OrderBy(x => x).Distinct().ToList();
             FindCount();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            int days = 0;
+            if (textBlockRemainedMonth.Text != "") days += int.Parse(textBlockRemainedMonth.Text) * 30;
+            if (textBlockRemainedDay.Text != "") days += int.Parse(textBlockRemainedDay.Text);
+            if (textBlockRemainedYears.Text != "") days += int.Parse(textBlockRemainedYears.Text) * 365;
+
             thesesGrid.ItemsSource = db.Theses.Where(
                 x => x.Group.StartsWith(textBlockGroup.Text) &&
                 (x.ProtocolNumber == textBlockProtocolNumber.Text || textBlockProtocolNumber.Text == "") &&
@@ -55,7 +61,11 @@ namespace vkr.View
                 x.Location.StartsWith(textBlockLocation.Text) &&
                 (x.Date.Year.ToString() == textBlockYears.Text || textBlockYears.Text == "") &&
                 (x.Date.Month.ToString() == textBlockMonth.Text || textBlockMonth.Text == "") &&
-                (x.Date.Day.ToString() == textBlockDay.Text || textBlockDay.Text == "")
+                (x.Date.Day.ToString() == textBlockDay.Text || textBlockDay.Text == "") &&
+                x.DateDeleted == null &&
+                (((DateTime.Now.Year - x.Date.Year) * 365 + (DateTime.Now.Month - x.Date.Month) * 30 + (DateTime.Now.Day - x.Date.Day) > 5 * 365 - days &&
+                (DateTime.Now.Year - x.Date.Year) * 365 + (DateTime.Now.Month - x.Date.Month) * 30 + (DateTime.Now.Day - x.Date.Day) < 5 * 365)
+                || (textBlockRemainedMonth.Text == "" && textBlockRemainedDay.Text == "" && textBlockRemainedYears.Text == ""))
             ).ToList();
             FindCount();
 

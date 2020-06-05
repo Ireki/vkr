@@ -39,11 +39,17 @@ namespace vkr.View
         private void LoadPractical()
         {
             practicalGrid.ItemsSource = db.Practical.Where(x => x.DateDeleted == null).ToList();
+            textBlockGroup.ItemsSource = db.Practical.Where(x => x.DateDeleted == null).Select(x => x.Group).OrderBy(x => x).Distinct().ToList();
             FindCount();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            int days = 0;
+            if (textBlockRemainedMonth.Text != "") days += int.Parse(textBlockRemainedMonth.Text) * 30;
+            if (textBlockRemainedDay.Text != "") days += int.Parse(textBlockRemainedDay.Text);
+            if (textBlockRemainedYears.Text != "") days += int.Parse(textBlockRemainedYears.Text) * 365;
+
             practicalGrid.ItemsSource = db.Practical.Where(
                 x => x.Group.StartsWith(textBlockGroup.Text) &&
                 x.Name.StartsWith(textBlockName.Text) &&
@@ -59,7 +65,11 @@ namespace vkr.View
                 (x.EndOfPractice.Day.ToString() == textBlockEndDay.Text || textBlockEndDay.Text == "") &&
                 x.FormOfPractice.StartsWith(textBlockDirector.Text) &&
                 x.Payment.StartsWith(textBlockPayment.Text) &&
-                x.Director.Contains(textBlockDirector.Text)
+                x.Director.Contains(textBlockDirector.Text) &&
+                x.DateDeleted == null &&
+                (((DateTime.Now.Year - x.EndOfPractice.Year) * 365 + (DateTime.Now.Month - x.EndOfPractice.Month) * 30 + (DateTime.Now.Day - x.EndOfPractice.Day) > 5 * 365 - days &&
+                (DateTime.Now.Year - x.EndOfPractice.Year) * 365 + (DateTime.Now.Month - x.EndOfPractice.Month) * 30 + (DateTime.Now.Day - x.EndOfPractice.Day) < 5 * 365)
+                || (textBlockRemainedMonth.Text == "" && textBlockRemainedDay.Text == "" && textBlockRemainedYears.Text == ""))
             ).ToList();
             FindCount();
         }
